@@ -260,9 +260,9 @@ void swap(SingleLinkedList<Type>& lhs, SingleLinkedList<Type>& rhs) noexcept {
 
 template <typename Type>
 bool operator==(const SingleLinkedList<Type>& lhs, const SingleLinkedList<Type>& rhs) {
-//Разве алгоритм equal не проверят длину контейнеров самостоятельно? Просто я не совсем понимаю тогда, зачем тут проверка на размер, если алгоритм уже делает это. Если не прав, поправьте пожалуйста
-    if(&lhs == &rhs && lhs.GetSize() != rhs.GetSize()){
-        return false;
+//Спасибо за подробный ответ, стало понятнее
+    if(&lhs == &rhs || lhs.GetSize() == rhs.GetSize()){
+        return true;
     }
     return std::equal(lhs.begin(), lhs.end(), rhs.begin(), rhs.end());
 }
